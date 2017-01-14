@@ -18,6 +18,8 @@ void Lifter_CMD::Execute() {
 		CommandBase::lifter->Lift(true, true);
 	} else if (pov == 0) {
 		CommandBase::lifter->Lift(true, false);
+	} else if (pov == 180) {
+		CommandBase::lifter->Lift(false, false);
 	}
 }
 
