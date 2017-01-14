@@ -13,7 +13,7 @@ void Shoot::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Shoot::Execute() {
-	frc::Joystick* joy_one = CommandBase::oi.get()->flight_one;
+	frc::Joystick* joy_one = CommandBase::oi.get()->flight_two;
 	if (joy_one->GetRawButton(1)) {
 		CommandBase::shooter->shoot();
 	} else {
