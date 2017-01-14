@@ -2,7 +2,8 @@
 #include <RobotMap.h>
 #include <Subsystems/Shooter.h>
 
-Shooter::Shooter() : Subsystem("Shooter") {
+Shooter::Shooter() :
+		Subsystem("Shooter") {
 	shooter_t = new Victor(SHOOTER_MOTOR_HIGH);
 	shooter_b = new Victor(SHOOTER_MOTOR_LOW);
 }

@@ -1,38 +1,38 @@
-#include <Commands/Drive.h>
-#include <Joystick.h>
-#include <OI.h>
-#include <Subsystems/Drivetrain.h>
+#include "Lifter_CMD.h"
 
-Drive::Drive() {
+Lifter_CMD::Lifter_CMD() {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(Robot::chassis.get());
-	Requires(CommandBase::driveTrain);
+	Requires(CommandBase::lifter);
 }
 
 // Called just before this Command runs the first time
-void Drive::Initialize() {
+void Lifter_CMD::Initialize() {
 
 }
 
 // Called repeatedly when this Command is scheduled to run
-void Drive::Execute() {
-	double leftax = CommandBase::oi->flight_one->GetRawAxis(1);
-	double rightax = CommandBase::oi->flight_two->GetRawAxis(1);
-	CommandBase::driveTrain->TankDrive(leftax * -1, rightax);
+void Lifter_CMD::Execute() {
+	int pov = CommandBase::oi->flight_two->GetPOV();
+	if (pov == -1) {
+		CommandBase::lifter->Lift(true, true);
+	} else if (pov == 0) {
+		CommandBase::lifter->Lift(true, false);
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool Drive::IsFinished() {
+bool Lifter_CMD::IsFinished() {
 	return false;
 }
 
 // Called once after isFinished returns true
-void Drive::End() {
+void Lifter_CMD::End() {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void Drive::Interrupted() {
+void Lifter_CMD::Interrupted() {
 
 }
