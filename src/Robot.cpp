@@ -1,5 +1,6 @@
 #include <memory>
 
+#include <CameraServer.h>
 #include <Commands/Command.h>
 #include <Commands/Scheduler.h>
 #include <IterativeRobot.h>
@@ -16,6 +17,7 @@ public:
 		//chooser.AddDefault("Default Auto", new ExampleCommand());
 		// chooser.AddObject("My Auto", new MyAutoCommand());
 		frc::SmartDashboard::PutData("Auto Modes", &chooser);
+		CameraServer::GetInstance()->StartAutomaticCapture();
 	}
 
 	/**
