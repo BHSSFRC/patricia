@@ -1,3 +1,24 @@
+# Created by https://www.gitignore.io/api/eclipse,c++
+
+### Eclipse ###
+
+RemoteSystemsTempFiles/
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+### C++ ###
+# Prerequisites
+*.d
+
 # Compiled Object files
 *.slo
 *.lo
@@ -15,6 +36,7 @@
 
 # Fortran module files
 *.mod
+*.smod
 
 # Compiled Static libraries
 *.lai
@@ -26,3 +48,5 @@
 *.exe
 *.out
 *.app
+
+# End of https://www.gitignore.io/api/eclipse,c++
