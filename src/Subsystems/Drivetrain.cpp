@@ -8,6 +8,8 @@ Drivetrain::Drivetrain() :
 		Subsystem("DriveTrain") {
 	drive_motor_l = new Victor(DRIVE_LEFT);
 	drive_motor_r = new Victor(DRIVE_RIGHT);
+	pdp = new PowerDistributionPanel();
+	frc::SmartDashboard::init();
 }
 
 void Drivetrain::InitDefaultCommand() {
