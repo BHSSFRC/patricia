@@ -4,7 +4,7 @@
 #include <Commands/Subsystem.h>
 #include <Victor.h>
 
-class Lifter : public Subsystem {
+class Lifter: public Subsystem {
 
 private:
 	// It's desirable that everything possible under private except

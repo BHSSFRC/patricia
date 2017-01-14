@@ -1,11 +1,11 @@
-#ifndef Lift_H
-#define Lift_H
+#ifndef Lifter_CMD_H
+#define Lifter_CMD_H
 
 #include "../CommandBase.h"
 
-class Lift : public CommandBase {
+class Lifter_CMD : public CommandBase {
 public:
-	Lift();
+	Lifter_CMD();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
@@ -13,4 +13,4 @@ public:
 	void Interrupted();
 };
 
-#endif  // Lift_H
+#endif  // Lifter_CMD_H

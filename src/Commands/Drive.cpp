@@ -2,7 +2,6 @@
 #include <Joystick.h>
 #include <OI.h>
 #include <Subsystems/Drivetrain.h>
-#include <iostream>
 
 Drive::Drive() {
 	// Use Requires() here to declare subsystem dependencies

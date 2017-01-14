@@ -1,5 +1,6 @@
 #include <memory>
 
+#include <CameraServer.h>
 #include <Commands/Command.h>
 #include <Commands/Scheduler.h>
 #include <IterativeRobot.h>
@@ -16,6 +17,7 @@ public:
 		//chooser.AddDefault("Default Auto", new ExampleCommand());
 		// chooser.AddObject("My Auto", new MyAutoCommand());
 		frc::SmartDashboard::PutData("Auto Modes", &chooser);
+		CameraServer::GetInstance()->StartAutomaticCapture();
 	}
 
 	/**
@@ -44,12 +46,12 @@ public:
 	 */
 	void AutonomousInit() override {
 		/* std::string autoSelected = frc::SmartDashboard::GetString("Auto Selector", "Default");
-		if (autoSelected == "My Auto") {
-			autonomousCommand.reset(new MyAutoCommand());
-		}
-		else {
-			autonomousCommand.reset(new ExampleCommand());
-		} */
+		 if (autoSelected == "My Auto") {
+		 autonomousCommand.reset(new MyAutoCommand());
+		 }
+		 else {
+		 autonomousCommand.reset(new ExampleCommand());
+		 } */
 
 		autonomousCommand.reset(chooser.GetSelected());
 
@@ -70,8 +72,8 @@ public:
 		if (autonomousCommand != nullptr) {
 			autonomousCommand->Cancel();
 		}
-		CommandBase::driveTrain->TankDrive(0,0.1);
-		CommandBase::driveTrain->TankDrive(0,0);
+		CommandBase::driveTrain->TankDrive(0, 0.1);
+		CommandBase::driveTrain->TankDrive(0, 0);
 	}
 
 	void TeleopPeriodic() override {

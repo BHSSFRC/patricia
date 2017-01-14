@@ -3,12 +3,11 @@
 
 #include "../CommandBase.h"
 
-class Shoot : public CommandBase {
+class Shoot: public CommandBase {
 public:
 	Shoot();
 	void Initialize();
-	void Execute();
-	bool IsFinished();
+	void Execute();bool IsFinished();
 	void End();
 	void Interrupted();
 };
