@@ -3,12 +3,11 @@
 
 #include "../CommandBase.h"
 
-class Lifter_CMD : public CommandBase {
+class Lifter_CMD: public CommandBase {
 public:
 	Lifter_CMD();
 	void Initialize();
-	void Execute();
-	bool IsFinished();
+	void Execute();bool IsFinished();
 	void End();
 	void Interrupted();
 };

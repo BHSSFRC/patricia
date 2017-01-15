@@ -3,6 +3,9 @@
 
 #include <Commands/Subsystem.h>
 #include <Victor.h>
+#include <PowerDistributionPanel.h>
+#include <SmartDashboard/SmartDashboard.h>
+#include <math.h>
 
 class Drivetrain: public Subsystem {
 private:
@@ -10,6 +13,7 @@ private:
 	// for methods that implement subsystem capabilities
 	Victor* drive_motor_l;
 	Victor* drive_motor_r;
+	PowerDistributionPanel* pdp;
 
 public:
 	Drivetrain();
