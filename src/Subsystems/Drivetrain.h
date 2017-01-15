@@ -5,6 +5,7 @@
 #include <Victor.h>
 #include <PowerDistributionPanel.h>
 #include <SmartDashboard/SmartDashboard.h>
+#include <math.h>
 
 class Drivetrain: public Subsystem {
 private:
