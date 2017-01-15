@@ -14,17 +14,16 @@
 #include <memory>
 #include <thread>
 #include <Vision/GripPipeline.h>
+#include "WPILib.h"
 
 class Robot: public frc::IterativeRobot {
 public:
 	void RobotInit() override {
 		CommandBase::init();
-		// CameraServer::GetInstance()->StartAutomaticCapture();
+		cs::UsbCamera camera = CameraServer::GetInstance()->StartAutomaticCapture();
 		// chooser.AddDefault("Default Auto", new ExampleCommand());
 		// chooser.AddObject("My Auto", new MyAutoCommand());
 		// frc::SmartDashboard::PutData("Auto Modes", &chooser);
-		std::thread visionThread(VisionThread);
-		visionThread.detach();
 	}
 
 	/**
@@ -95,20 +94,6 @@ private:
 	std::unique_ptr<frc::Command> autonomousCommand;
 	frc::SendableChooser<frc::Command*> chooser;
 	Drivetrain* drivetrain;
-	static void VisionThread() {
-		cs::UsbCamera camera = CameraServer::GetInstance()->StartAutomaticCapture();
-		camera.SetResolution(640, 480);
-		cs::CvSink cvSink = CameraServer::GetInstance()->GetVideo();
-		cs::CvSource outputStreamStd = CameraServer::GetInstance()->PutVideo("Gray", 640, 480);
-		cv::Mat source;
-		cv::Mat output;
-		grip::GripPipeline* pipeline = new grip::GripPipeline();
-		while(true) {
-			pipeline->setsource0(source);
-			pipeline->process(source);
-			outputStreamStd.PutFrame(output);
-		}
-	}
 };
 
 START_ROBOT_CLASS(Robot)
