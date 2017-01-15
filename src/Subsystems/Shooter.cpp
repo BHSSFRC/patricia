@@ -16,8 +16,8 @@ void Shooter::InitDefaultCommand() {
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
 void Shooter::shoot() {
-	shooter_t->Set(THREE_QUARTER_FORWARD);
-	shooter_b->Set(THREE_QUARTER_FORWARD);
+	shooter_t->Set(HALF_FORWARD);
+	shooter_b->Set(HALF_FORWARD);
 }
 
 void Shooter::stop() {
