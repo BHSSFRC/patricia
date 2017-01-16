@@ -1,3 +1,4 @@
+#include "vision/VisionPipeline.h"
 #include "GripPipeline.h"
 /**
 * Initializes a GripPipeline.
@@ -13,7 +14,7 @@ GripPipeline::GripPipeline() {
 * Sources need to be set before calling this method. 
 *
 */
-void GripPipeline::process(cv::Mat source0) {
+void GripPipeline::process(cv::Mat source0){
 	//Step HSL_Threshold0:
 	//input
 	cv::Mat hslThresholdInput = source0;
@@ -30,16 +31,16 @@ void GripPipeline::process(cv::Mat source0) {
 	//input
 	std::vector<std::vector<cv::Point> > filterContoursContours = findContoursOutput;
 	double filterContoursMinArea = 125.0;  // default Double
-	double filterContoursMinPerimeter = 0;  // default Double
-	double filterContoursMinWidth = 0;  // default Double
-	double filterContoursMaxWidth = 1000;  // default Double
-	double filterContoursMinHeight = 0;  // default Double
-	double filterContoursMaxHeight = 1000;  // default Double
+	double filterContoursMinPerimeter = 0.0;  // default Double
+	double filterContoursMinWidth = 0.0;  // default Double
+	double filterContoursMaxWidth = 1000.0;  // default Double
+	double filterContoursMinHeight = 0.0;  // default Double
+	double filterContoursMaxHeight = 1000.0;  // default Double
 	double filterContoursSolidity[] = {0, 100};
-	double filterContoursMaxVertices = 1000000;  // default Double
-	double filterContoursMinVertices = 0;  // default Double
-	double filterContoursMinRatio = 0;  // default Double
-	double filterContoursMaxRatio = 1000;  // default Double
+	double filterContoursMaxVertices = 1000000.0;  // default Double
+	double filterContoursMinVertices = 0.0;  // default Double
+	double filterContoursMinRatio = 0.0;  // default Double
+	double filterContoursMaxRatio = 1000.0;  // default Double
 	filterContours(filterContoursContours, filterContoursMinArea, filterContoursMinPerimeter, filterContoursMinWidth, filterContoursMaxWidth, filterContoursMinHeight, filterContoursMaxHeight, filterContoursSolidity, filterContoursMaxVertices, filterContoursMinVertices, filterContoursMinRatio, filterContoursMaxRatio, this->filterContoursOutput);
 }
 
@@ -47,9 +48,9 @@ void GripPipeline::process(cv::Mat source0) {
  * This method is a generated setter for source0.
  * @param source the Mat to set
  */
-void GripPipeline::setsource0(cv::Mat &source0){
+/* void GripPipeline::setsource0(cv::Mat &source0){
 	source0.copyTo(this->source0);
-}
+} */
 /**
  * This method is a generated getter for the output of a HSL_Threshold.
  * @return Mat output from HSL_Threshold.
@@ -137,5 +138,8 @@ std::vector<std::vector<cv::Point> >* GripPipeline::getfilterContoursOutput(){
 			output.push_back(contour);
 		}
 	}
+
+
+
 } // end grip namespace
 
